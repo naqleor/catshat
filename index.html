@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котьи шапочки</title>
+    <style>
+    /* первый сайт  */
+    * {
+    margin: 0;
+        padding: 0;
+    box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Calibri', Arial, sans-serif;
+    line-height: 1.6;
+        color: #424242;
+    background-color: #FAFAFA;
+        font-size: 18px;
+    }
+    
+    .container {
+    width: 90%;
+    max-width: 1200px;
+        margin: 0 auto; /* это чтобы по центру было */
+    }
+    
+    section {
+    padding: 80px 0; /* сверху и снизу отступы */
+    }
+    
+    h2 {
+    text-align: center;
+        margin-bottom: 40px;
+    font-size: 37px;
+        color: #5D4037;
+    }
+    
+    /* Шапка сайта */
+    header {
+    background-color: #FF7043;
+        padding: 15px 0;
+    position: fixed;
+    width: 100%;
+        top: 0;
+    z-index: 1000; /* это чтобы поверх всего было */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header-content {
+    display: flex;
+        justify-content: space-between;
+    align-items: center;
+    }
+    
+    .logo-img {
+    height: 46px;
+    }
+    
+    nav ul {
+    list-style-type: none;
+        display: flex;
+    }
+    
+    nav ul li {
+        margin-left: 23px;
+    }
+    
+    nav ul li a {
+    color: white;
+        text-decoration: none;
+    font-weight: bold;
+        transition: color 0.3s;
+    font-size: 18px;
+    }
+    
+    nav ul li a:hover {
+    color: #FFF8E1; /* при наведении меняет цвет */
+    }
+    
+    /* Главная страница */
+    #home {
+        padding-top: 120px;
+    background: linear-gradient(to bottom, #FFF8E1, #FFCCBC);
+    text-align: center;
+    }
+    
+    .banner {
+    margin-bottom: 40px;
+    }
+    
+    .banner h1 {
+        font-size: 48px;
+    color: #5D4037;
+        margin-bottom: 40px;
+    }
+    
+    .main-video {
+    width: 100%;
+        max-width: 800px;
+    border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    }
+    
+    .banner p {
+        font-size: 25px;
+    margin-bottom: 30px;
+        max-width: 800px;
+    margin-left: auto;
+        margin-right: auto;
+    color: #424242;
+    }
+    
+    .btn {
+    background-color: #5D4037;
+        color: white;
+    padding: 14px 35px;
+        border: none;
+    border-radius: 4px;
+    font-size: 21px;
+    cursor: pointer;
+        text-decoration: none;
+    display: inline-block;
+        transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .btn:hover {
+    background-color: #3E2723;
+        transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Про нас */
+    #about {
+    background-color: #F5F5F5;
+    }
+    
+    .about-content {
+    display: flex;
+        align-items: center;
+    gap: 46px;
+    }
+    
+    .about-text {
+    flex: 1;
+    }
+    
+    .about-text p {
+        font-size: 21px;
+    margin-bottom: 23px;
+        color: #424242;
+    }
+    
+    .about-image {
+        flex: 1;
+    border-radius: 8px;
+        overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .about-image img {
+    width: 100%;
+        display: block;
+    }
+    
+    /* Товары */
+    #catalog {
+        background-color: #E8F5E8;
+    }
+    
+    .products {
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+    }
+    
+    .product-card {
+    background-color: white;
+        border-radius: 8px;
+    padding: 23px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+        text-align: center;
+    display: flex;
+        flex-direction: column;
+    height: 100%;
+        cursor: pointer;
+    position: relative;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .product-image-container {
+        width: 100%;
+    aspect-ratio: 1 / 1; /* это чтобы квадратные были */
+        margin-bottom: 17px;
+    border-radius: 6px;
+        overflow: hidden;
+    display: flex;
+        align-items: center;
+    justify-content: center;
+        background-color: #FAFAFA;
+    position: relative;
+    }
+    
+    .product-image {
+    width: 100%;
+        height: 100%;
+    object-fit: cover;
+        display: block;
+    }
+    
+    .product-card h3 {
+        margin: 12px 0;
+    color: #5D4037;
+        flex-grow: 0;
+    font-size: 23px;
+    }
+    
+    .product-card p {
+    flex-grow: 1;
+        margin-bottom: 12px;
+    font-size: 18px;
+        color: #424242;
+    }
+    
+    .price {
+        font-size: 23px;
+    font-weight: bold;
+        color: #424242;
+    margin: 12px 0;
+        flex-grow: 0;
+    }
+    
+    /* Бейджики на товарах */
+    .badge {
+    position: absolute;
+        top: 12px;
+    right: 12px;
+    padding: 7px 14px;
+        border-radius: 18px;
+    font-size: 14px;
+        font-weight: bold;
+    color: white;
+        z-index: 10;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    .badge-sale {
+    background-color: #E53935;
+    }
+    
+    .badge-new {
+        background-color: #5D4037;
+    }
+    
+    .badge-top {
+    background-color: #FF8F00;
+    }
+    
+    /* Отзывы покупателей */
+    #reviews {
+        background-color: #F5F5F5;
+    }
+    
+    .reviews-container {
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    }
+    
+    .review {
+    background-color: white;
+        border-radius: 8px;
+    padding: 29px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+        flex-direction: column;
+    align-items: center;
+        text-align: center;
+    transition: transform 0.3s;
+    }
+    
+    .review:hover {
+        transform: translateY(-2px);
+    }
+    
+    .reviewer-photo {
+    width: 92px;
+        height: 92px;
+    border-radius: 50%;
+        object-fit: cover;
+    margin-bottom: 17px;
+        border: 3px solid #5D4037;
+    }
+    
+    .review h3 {
+    margin-bottom: 12px;
+        color: #5D4037;
+    font-size: 23px;
+    }
+    
+    .review p {
+        font-style: italic;
+    font-size: 18px;
+        color: #424242;
+    }
+    
+    /* Контакты */
+    #contacts {
+    background-color: #E8F5E8;
+    }
+    
+    .contact-content {
+        display: flex;
+    gap: 46px;
+    }
+    
+    .contact-info {
+    flex: 1;
+    }
+    
+    .contact-info h3 {
+        font-size: 23px;
+    margin-bottom: 17px;
+    }
+    
+    .contact-info p {
+    font-size: 18px;
+        margin-bottom: 12px;
+    color: #424242;
+    }
+    
+    .contact-form {
+        flex: 1;
+    }
+    
+    .contact-form h3 {
+    font-size: 23px;
+        margin-bottom: 17px;
+    }
+    
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+    padding: 14px;
+        margin-bottom: 17px;
+    border: 1px solid #E0E0E0;
+        border-radius: 4px;
+    font-family: inherit;
+        font-size: 18px;
+    background-color: white;
+        transition: border-color 0.3s;
+    }
+    
+    .contact-form input:focus, .contact-form textarea:focus {
+    border-color: #5D4037;
+        outline: none;
+    }
+    
+    .contact-form textarea {
+        height: 138px;
+    resize: vertical;
+    }
+    
+    /* Подвал внизу */
+    footer {
+    background-color: #424242;
+        color: white;
+    text-align: center;
+        padding: 35px 0;
+    }
+    
+    footer p {
+        font-size: 18px;
+    margin-bottom: 12px;
+    }
+    
+    /* Анимации появления */
+    .fade-in {
+    opacity: 0;
+        transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+    transform: translateY(0);
+    }
+    
+    /* Окно с товаром */
+    .modal {
+    display: none;
+        position: fixed;
+    top: 0;
+        left: 0;
+    width: 100%;
+        height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+    align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-content {
+    background-color: white;
+        border-radius: 8px;
+    width: 90%;
+        max-width: 800px;
+    padding: 35px;
+        position: relative;
+    display: flex;
+        flex-direction: column;
+    align-items: center;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    .modal-close {
+    position: absolute;
+        top: 17px;
+    right: 23px;
+        font-size: 35px;
+    cursor: pointer;
+        color: #5D4037;
+    transition: color 0.3s;
+    }
+    
+    .modal-close:hover {
+        color: #3E2723;
+    }
+    
+    .modal-image {
+    width: 100%;
+        max-width: 400px;
+    border-radius: 6px;
+        margin-bottom: 23px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .modal-title {
+        font-size: 32px;
+    color: #5D4037;
+        margin-bottom: 17px;
+    text-align: center;
+    }
+    
+    .modal-description {
+    font-size: 21px;
+        margin-bottom: 23px;
+    text-align: center;
+        max-width: 600px;
+    color: #424242;
+    }
+    
+    .modal-price {
+        font-size: 28px;
+    font-weight: bold;
+        margin-bottom: 23px;
+    color: #424242;
+    }
+    
+    .modal-nav {
+    display: flex;
+        justify-content: space-between;
+    width: 100%;
+        margin-top: 23px;
+    }
+    
+    .nav-arrow {
+    background-color: #FF7043;
+        color: white;
+    border: none;
+        border-radius: 50%;
+    width: 58px;
+        height: 58px;
+    font-size: 28px;
+        cursor: pointer;
+    display: flex;
+        align-items: center;
+    justify-content: center;
+        transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .nav-arrow:hover {
+    background-color: #5D4037;
+        transform: scale(1.05);
+    }
+
+    /* Таблица скидок */
+    .discount-table {
+        margin-top: 60px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .discount-table h3 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #5D4037;
+        font-size: 28px;
+    }
+    
+    .discount-table table {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .discount-table th {
+        background-color: #5D4037;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .discount-table td {
+        padding: 15px;
+        text-align: center;
+        font-size: 17px;
+        color: #424242;
+        border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .discount-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .discount-table .discount-value {
+        font-weight: bold;
+        color: #E53935;
+    }
+    
+    .discount-note {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #757575;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Для телефонов */
+    @media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    text-align: center;
+    }
+    
+    nav ul {
+    margin-top: 17px;
+        justify-content: center;
+    }
+    
+    .about-content, .contact-content {
+        flex-direction: column;
+    }
+    
+    .banner h1 {
+    font-size: 37px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    .modal-content {
+    width: 95%;
+        padding: 23px;
+    }
+    
+    .modal-image {
+        max-width: 300px;
+    }
+    
+    .main-video {
+    max-width: 95%;
+    }
+    
+    .discount-table {
+        padding: 20px;
+    }
+    
+    .discount-table th, 
+    .discount-table td {
+        padding: 12px 10px;
+    }
+    }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+    <div class="container header-content">
+            <img src="images/logo.png" alt="Кошачьи шапочки" class="logo-img">
+        <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        </nav>
+    </div>
+    </header>
+    
+    <!-- Главная страница -->
+    <section id="home">
+        <div class="container">
+        <div class="banner fade-in">
+                <!-- Заголовок -->
+            <h1>Стильные шапочки для ваших котиков!</h1>
+                
+                <!-- Видео с котиками -->
+            <video class="main-video fade-in" autoplay muted loop playsinline>
+                <source src="videos/video1.mp4" type="video/mp4">
+                <source src="videos/video1.webm" type="video/webm">
+                    Ваш браузер не поддерживает видео тег.
+            </video>
+                
+                <!-- Описание -->
+            <p>Сделайте вашего питомца самым модным в округе с нашими уникальными шапочками ручной работы.</p>
+                
+                <!-- Кнопка -->
+            <a href="#catalog" class="btn">Посмотреть каталог</a>
+        </div>
+        </div>
+    </section>
+    
+    <!-- Раздел о нас -->
+    <section id="about">
+    <div class="container">
+            <h2>О нашей компании</h2>
+        <div class="about-content">
+                <div class="about-text fade-in">
+            <p>Мы - команда энтузиастов, которые обожают кошек и моду. Наша миссия - сделать жизнь ваших питомцев ярче и стильнее!</p>
+            <p>Все наши шапочки изготавливаются из экологически чистых материалов и подходят для кошек всех пород и размеров.</p>
+            <p>Мы тщательно отбираем ткани и фурнитуру, чтобы ваши питомцы чувствовали себя комфортно и выглядели неотразимо.</p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="images/team.png" alt="Наша команда">
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <!-- Каталог товаров -->
+    <section id="catalog">
+        <div class="container">
+        <h2>Наш каталог</h2>
+            <p style="text-align: center; margin-bottom: 46px; font-size: 21px; color: #424242;">Выберите идеальную шапочку для вашего питомца из нашей коллекции</p>
+            
+        <div class="products">
+                <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="1">
+                    <div class="product-image-container">
+                <img src="images/whitehat.png" alt="Шапочка Ушко" class="product-image">
+                        <div class="badge badge-sale">Распродажа</div>
+                    </div>
+                <h3>Шапочка "Ушко"</h3>
+                    <p>Мягкая шапочка с ушками для игривых котиков</p>
+                <p class="price">799 руб.</p>
+                    </div>
+                
+                <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="2">
+                    <div class="product-image-container">
+                <img src="images/strawberryhat.png" alt="Шапочка Клубничка" class="product-image">
+                    </div>
+                <h3>Шапочка "Клубничка"</h3>
+                    <p>Сладкая шапочка в виде клубники</p>
+                <p class="price">899 руб.</p>
+                    </div>
+                
+                <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="3">
+                    <div class="product-image-container">
+                <img src="images/kinghat.png" alt="Шапочка Принцесса" class="product-image">
+                    </div>
+                <h3>Шапочка "Принцесса"</h3>
+                    <p>Королевская шапочка с драгоценными камнями</p>
+                <p class="price">1299 руб.</p>
+                    </div>
+                
+                <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="4">
+                    <div class="product-image-container">
+                <img src="images/pirathat.png" alt="Шапочка Пират" class="product-image">
+                    <div class="badge badge-new">Новинка</div>
+                    </div>
+                <h3>Шапочка "Пират"</h3>
+                    <p>Стильная шапочка для смелых котиков</p>
+                <p class="price">999 руб.</p>
+                    </div>
+                
+                <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="5">
+                    <div class="product-image-container">
+                <img src="images/christmashat.png" alt="Шапочка Санта" class="product-image">
+                        <div class="badge badge-top">Топ Продаж!</div>
+                    </div>
+                <h3>Шапочка "Санта"</h3>
+                    <p>Новогодняя шапочка для праздничного настроения</p>
+                <p class="price">1099 руб.</p>
+                    </div>
+                
+                <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="6">
+                    <div class="product-image-container">
+                <img src="images/greenhat.png" alt="Шапочка Бабочка" class="product-image">
+                    </div>
+                <h3>Шапочка "Бабочка"</h3>
+                    <p>Элегантная шапочка с бабочкой для особых случаев</p>
+                <p class="price">1199 руб.</p>
+                    </div>
+                
+                <!-- Товар 7 -->
+            <div class="product-card fade-in" data-id="7">
+                    <div class="product-image-container">
+                <img src="images/angelhat.png" alt="Шапочка Ангел" class="product-image">
+                    </div>
+                <h3>Шапочка "Ангел"</h3>
+                    <p>Нежная шапочка с крылышками для милых котиков</p>
+                <p class="price">949 руб.</p>
+                    </div>
+                
+                <!-- Товар 8 -->
+            <div class="product-card fade-in" data-id="8">
+                    <div class="product-image-container">
+                <img src="images/herohat.png" alt="Шапочка Супергерой" class="product-image">
+                    </div>
+                <h3>Шапочка "Супергерой"</h3>
+                    <p>Энергичная шапочка для смелых и активных котиков</p>
+                <p class="price">1049 руб.</p>
+                    </div>
+            </div>
+
+            <!-- Таблица скидок -->
+            <div class="discount-table fade-in">
+                <h3>Скидки за оптовый заказ</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Количество</th>
+                            <th>Скидка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>от 50 штук</td>
+                            <td class="discount-value">3%</td>
+                        </tr>
+                        <tr>
+                            <td>от 100 штук</td>
+                            <td class="discount-value">5%</td>
+                        </tr>
+                        <tr>
+                            <td>от 200 штук</td>
+                            <td class="discount-value">10%</td>
+                        </tr>
+                        <tr>
+                            <td>от 300 штук</td>
+                            <td class="discount-value">договорная цена</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="discount-note">
+                    * Для получения оптовых цен свяжитесь с нами по телефону или через форму обратной связи
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Отзывы клиентов -->
+    <section id="reviews">
+    <div class="container">
+            <h2>Отзывы наших клиентов</h2>
+            
+        <div class="reviews-container">
+                <div class="review fade-in">
+            <img src="images/reviewer1.png" alt="Марина" class="reviewer-photo">
+                    <h3>Марина</h3>
+            <p>Мой кот Барсик просто обожает свою новую шапочку! Он стал настоящей звездой нашего района. Качество отличное, доставка быстрая.</p>
+                    </div>
+                
+            <div class="review fade-in">
+                    <img src="images/reviewer2.png" alt="Алексей" class="reviewer-photo">
+                <h3>Алексей</h3>
+                    <p>Заказал шапочку для кошки дочери. Она в восторге! Кошка сначала была недовольна, но теперь привыкла и даже сама просит надеть.</p>
+                </div>
+                
+            <div class="review fade-in">
+                    <img src="images/reviewer3.png" alt="Ольга" class="reviewer-photo">
+                <h3>Ольга</h3>
+                    <p>Шапочка просто прелесть! Отличное качество, удобная посадка. Мой Мурзик выглядит в ней просто очаровательно. Обязательно закажу еще!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Контактная информация -->
+    <section id="contacts">
+    <div class="container">
+            <h2>Свяжитесь с нами</h2>
+        <div class="contact-content">
+                <div class="contact-info fade-in">
+            <h3>Наши контакты</h3>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+            <p>Email: info@cat-hats.ru</p>
+                    <p>Адрес: г. Москва, ул. Кошачья, д. 15</p>
+            <p>Режим работы: Пн-Пт: 9:00-18:00</p>
+                    
+            <h3 style="margin-top: 35px;">Мы в социальных сетях</h3>
+                    <p>Instagram: @cat_hats_ru</p>
+            <p>VK: vk.com/cathats</p>
+                    </div>
+                
+            <div class="contact-form fade-in">
+                    <h3>Напишите нам</h3>
+                <form>
+                        <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш email" required>
+                        <input type="text" placeholder="Тема сообщения">
+                    <textarea placeholder="Ваше сообщение" required></textarea>
+                        <button type="submit" class="btn">Отправить сообщение</button>
+                </form>
+                    </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Подвал сайта -->
+    <footer>
+    <div class="container">
+        <p>© 2025 Кошачьи шапочки. Все права защищены.</p>
+        <p>Василий Яковлев</p>
+        </div>
+    </footer>
+
+    <!-- Окно с информацией о товаре -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img src="" alt="" class="modal-image" id="modalImage">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description" id="modalDescription"></p>
+        <p class="modal-price" id="modalPrice"></p>
+        <button class="btn" id="modalBuyBtn">Купить</button>
+        <div class="modal-nav">
+        <button class="nav-arrow" id="prevProduct">&#10094;</button>
+        <button class="nav-arrow" id="nextProduct">&#10095;</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+    // Данные о товарах
+        const products = [
+        {
+            id: 1,
+            name: 'Шапочка "Ушко"',
+            description: 'Мягкая шапочка с ушками для игривых котиков. Изготовлена из гипоаллергенного материала, не вызывает раздражения. Идеально подходит для фотосессий и повседневной носки.',
+            price: '799 руб.',
+            image: 'images/whitehat.png'
+        },
+            {
+            id: 2,
+            name: 'Шапочка "Клубничка"',
+            description: 'Сладкая шапочка в виде клубники порадует вашего питомца и поднимет настроение всем вокруг. Яркий дизайн и комфортная посадка.',
+            price: '899 руб.',
+            image: 'images/strawberryhat.png'
+        },
+            {
+            id: 3,
+            name: 'Шапочка "Принцесса"',
+            description: 'Королевская шапочка с драгоценными камнями для особых случаев. Ваш питомец почувствует себя настоящей королевой или королем!',
+            price: '1299 руб.',
+            image: 'images/kinghat.png'
+        },
+            {
+            id: 4,
+            name: 'Шапочка "Пират"',
+            description: 'Стильная шапочка для смелых котиков. Создайте образ настоящего морского разбойника для вашего питомца!',
+            price: '999 руб.',
+            image: 'images/pirathat.png'
+        },
+            {
+            id: 5,
+            name: 'Шапочка "Санта"',
+            description: 'Новогодняя шапочка для праздничного настроения. Идеальный аксессуар для рождественских фото и зимних праздников.',
+            price: '1099 руб.',
+            image: 'images/christmashat.png'
+        },
+            {
+            id: 6,
+            name: 'Шапочка "Бабочка"',
+            description: 'Элегантная шапочка с бабочкой для особых случаев. Подчеркнет утонченность и грацию вашего питомца.',
+            price: '1199 руб.',
+            image: 'images/greenhat.png'
+        },
+            {
+            id: 7,
+            name: 'Шапочка "Ангел"',
+            description: 'Нежная шапочка с крылышками для милых котиков. Создаст образ небесного создания и подчеркнет нежность вашего питомца.',
+            price: '949 руб.',
+            image: 'images/angelhat.png'
+        },
+            {
+            id: 8,
+            name: 'Шапочка "Супергерой"',
+            description: 'Энергичная шапочка для смелых и активных котиков. Ваш питомец будет чувствовать себя настоящим супергероем, готовым к любым приключениям!',
+            price: '1049 руб.',
+            image: 'images/herohat.png'
+        }
+        ];
+
+    // для окна с товаром
+    const modal = document.getElementById('productModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalBuyBtn = document.getElementById('modalBuyBtn');
+    const modalClose = document.getElementById('modalClose');
+    const prevBtn = document.getElementById('prevProduct');
+    const nextBtn = document.getElementById('nextProduct');
+
+    let currentProductIndex = 0; // текущий товар
+
+        // Открытие окна при клике на товар
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', function() {
+        const productId = parseInt(this.getAttribute('data-id'));
+        currentProductIndex = products.findIndex(p => p.id === productId);
+        openModal(currentProductIndex);
+            });
+    });
+
+    // Функция открытия окна
+        function openModal(index) {
+        const product = products[index];
+        modalImage.src = product.image;
+        modalTitle.textContent = product.name;
+        modalDescription.textContent = product.description;
+        modalPrice.textContent = product.price;
+        modal.style.display = 'flex';
+            
+        // Показываем или скрываем стрелки
+        prevBtn.style.visibility = index > 0 ? 'visible' : 'hidden';
+        nextBtn.style.visibility = index < products.length - 1 ? 'visible' : 'hidden';
+            }
+
+    // Закрытие окна
+        modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+            });
+
+    // Закрытие при клике мимо окна
+        window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+            });
+
+    // Листание товаров назад
+        prevBtn.addEventListener('click', function() {
+        if (currentProductIndex > 0) {
+            currentProductIndex--;
+            openModal(currentProductIndex);
+        }
+            });
+
+    // Листание товаров вперед
+        nextBtn.addEventListener('click', function() {
+        if (currentProductIndex < products.length - 1) {
+            currentProductIndex++;
+            openModal(currentProductIndex);
+        }
+            });
+
+    // Кнопка купить в окне
+        modalBuyBtn.addEventListener('click', function() {
+        const productName = products[currentProductIndex].name;
+        alert(`Вы добавили в корзину: ${productName}`);
+        modal.style.display = 'none';
+            });
+
+    // Автозапуск видео
+        document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('.main-video');
+        video.play().catch(function(error) {
+        console.log('Автозапуск видео заблокирован браузером:', error);
+                });
+    });
+
+    // Плавная прокрутка по странице
+        document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+            
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+            
+        window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+                    });
+        });
+            });
+        
+    // Анимация появления элементов
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+            
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+            }
+                });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Запуск при загрузке для видимых элементов
+        fadeInOnScroll();
+        
+    // Проверка формы
+    const contactForm = document.querySelector('.contact-form form');
+    contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+    this.reset();
+    });
+    </script>
+</body>
+</html>
